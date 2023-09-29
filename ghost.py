@@ -111,7 +111,7 @@ id = lastID("`ghostwriter`.`document`")
 if answer == '':
     answer = 'Test ' + str(id)
 with connection.session as session:
-    session.execute('INSERT INTO document (ID, SENTENCE) VALUES(:idd, :sen);', params = dict(idd = id, sen = answer))
+    session.execute('INSERT INTO document (ID, SENTENCE) VALUES(:id, :sen);', params = dict(id = id, sen = answer))
     session.commit()
 
 
