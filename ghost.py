@@ -4,11 +4,12 @@
 ##### Please reach out to ben@benbox.org for any questions
 #### Loading needed Python libraries
 import streamlit as st
-from streamlit.connections import SQLConnection
+#from streamlit.connections import SQLConnection
 import io
 import pandas as pd
-#import pymysql
-#pymysql.install_as_MySQLdb()
+# Mac support
+import pymysql
+pymysql.install_as_MySQLdb()
 #from sqlalchemy.sql import text
 import openai
 import deepl
