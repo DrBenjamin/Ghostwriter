@@ -14,9 +14,11 @@ python -m pip install --upgrade pip setuptools virtualenv
 
 Setup Virtual Environment.
 
-```
+```bash
 python -m virtualenv kivy_venvsource kivy_venv/Scripts/activate
 source kivy_venv/Scripts/activate
+# or on Linux & Mac
+source kivy_venv/bin/activate
 ```
 
 ### Install Kivy
@@ -48,7 +50,17 @@ Prepare Android build.
 ```bash
 buildozer init
 ```
+
 Edit buildozer.spec file to add requirements.
+
+Install gettext (if missing).
+
+```bash
+brew install gettext
+brew link gettext --force
+```
+
+Deploy Android App.
 
 ```bash
 buildozer android debug deploy
