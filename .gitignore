@@ -159,3 +159,5 @@ cython_debug/
 #.idea/
 .streamlit/secrets.toml
 .buildozer/*
+bin/.DS_Store
+.DS_Store
