@@ -15,7 +15,7 @@ python -m pip install --upgrade pip setuptools virtualenv
 Setup Virtual Environment.
 
 ```bash
-python -m virtualenv kivy_venvsource kivy_venv/Scripts/activate
+python -m virtualenv kivy_venv
 source kivy_venv/Scripts/activate
 # or on Linux & Mac
 source kivy_venv/bin/activate
