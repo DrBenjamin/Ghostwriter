@@ -35,6 +35,12 @@ or install from sources
 python -m pip install "kivy[base]" kivy_examples
 ```
 
+Install dependencies
+
+```bash
+python -m pip install -r requirements.txt
+```
+
 ### Install buildozer (Android)
 
 Install buildozer.
