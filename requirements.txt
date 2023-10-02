@@ -1,7 +1,3 @@
-streamlit
 pandas
 openai
 deepl
-SQLAlchemy==2.0.21
-mysqlclient
-python-docx
