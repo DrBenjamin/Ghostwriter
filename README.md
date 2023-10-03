@@ -16,8 +16,11 @@ Setup Virtual Environment.
 
 ```bash
 python -m virtualenv kivy_venv
+
+# Windows
 source kivy_venv/Scripts/activate
-# or on Linux & Mac
+
+# or Linux / Mac
 source kivy_venv/bin/activate
 ```
 
