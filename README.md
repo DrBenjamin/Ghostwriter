@@ -2,7 +2,7 @@
 
 Ghostwriter helps you write academic text.
 
-## Kivy Configuration
+## Kivy
 
 Setup Kivy Python framework.
 
@@ -41,33 +41,72 @@ Install dependencies
 python -m pip install -r requirements.txt
 ```
 
-### Install buildozer (Android)
+### Build the Apps
 
-Install buildozer.
-
-```bash
-python -m pip install buildozer
-```
-
-### Build Android App
-
-Prepare Android build.
+Prepare the build.
 
 ```bash
 buildozer init
 ```
 
-Edit buildozer.spec file to add requirements.
+Edit buildozer.spec file and add requirements.
 
-Install gettext (if missing).
+Install gettext (if missing) on Mac.
 
 ```bash
 brew install gettext
 brew link gettext --force
 ```
 
+#### Build Mac App
+
+Deploy Mac App.
+
+```bash
+# Using PyInstaller and Homebrew (Mac)
+brew reinstall --build-from-source sdl2 sdl2_image sdl2_ttf sdl2_mixer
+python -m pip install -U pyinstaller
+pyinstaller -y --clean --windowed --name Ghostwriter \
+  --exclude-module _tkinter \
+  --exclude-module Tkinter \
+  --exclude-module enchant \
+  --exclude-module twisted \
+  ./main.py
+
+# or use buildozer
+buildozer osx debug deploy
+```
+
+#### Build Windows App
+
+Deploy Windows App.
+
+```bash
+python -m pip install -U pyinstaller
+python -m PyInstaller --name Ghostwriter ./main.py
+```
+
+#### Build Android App
+
 Deploy Android App.
 
 ```bash
 buildozer android debug deploy
+```
+
+#### Build iOS App
+
+Deploy iOS App.
+
+```bash
+# Compile the distribution
+python -m pip install kivy-ios
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer/
+toolchain build python3 kivy
+
+# Create an XCode project
+toolchain create ghostwriter ghostwriter
+
+# Compile the app in XCode
+open ghostwriter-ios/ghostwriter.xcodeproj
 ```

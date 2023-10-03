@@ -4,3 +4,4 @@ kivymd==1.1.1
 pandas
 openai
 deepl
+buildozer
