@@ -3,8 +3,12 @@
 ##### Open-Source, hosted on https://github.com/DrBenjamin/Ghostwriter
 ##### Please reach out to ben@benbox.org for any questions
 #### Loading needed Python libraries
-from docx import Document
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+### General libraries
+import deepl
+import openai
+
+
+
 ### Kivy libraries
 from kivy.app import App
 from kivy.uix.scatter import Scatter
