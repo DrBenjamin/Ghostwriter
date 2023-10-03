@@ -14,6 +14,8 @@ from kivy.app import App
 from kivy.uix.scatter import Scatter
 from kivy.uix.label import Label
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.textinput import TextInput
+from kivy.uix.boxlayout import BoxLayout
 
 
 
@@ -31,13 +33,19 @@ def trans(input, target_lang):
 #### Classes
 class GhostwriterApp(App):
     def build(self):
+        b = BoxLayout(orientation = 'vertical')
+        t = TextInput(text = 'default', font_size = 15, size_hint_y = None, height = 120, multiline = True)
         f = FloatLayout()
         s = Scatter()
-        l = Label(text = 'The German Malawi Health Programme', font_size = 15)
+        l = Label(text = 'default', font_size = 50)
         
+        t.bind(text = l.setter('text'))
         f.add_widget(s)
         s.add_widget(l)
-        return f
+        b.add_widget(t)
+        b.add_widget(f)
+        
+        return b
 
 
 
