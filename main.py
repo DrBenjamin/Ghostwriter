@@ -4,8 +4,7 @@
 ##### Please reach out to ben@benbox.org for any questions
 #### Loading needed Python libraries
 ### General libraries
-import deepl
-import openai
+
 
 
 
@@ -17,23 +16,27 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 
-
-
-
-#### Functions
-### Function: trans = DeepL translation
-def trans(input, target_lang):
-    translator = deepl.Translator("c52a9c7d-3198-063c-2bbf-8f67173820ce:fx")
-    result = translator.translate_text(input, target_lang = target_lang)
-    return result
+from kivy.properties import ListProperty
 
 
 
 
 #### Classes
+### Widgets
 class ScatterTextWidget(BoxLayout):
-    pass
+    text_color = ListProperty([1, 0, 0, 1])
 
+    def change_text(self, *args):
+        label = self.ids['my_label']	
+        label.text = 'Test'
+
+        self.text_color = (1, 0, 0, 1)
+        label1 = self.ids.label1
+        label2 = self.ids.label2
+
+
+
+### Layout
 class GhostwriterApp(App):
     def build(self):
         return ScatterTextWidget()
