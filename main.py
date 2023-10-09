@@ -50,9 +50,12 @@ def chatgpt(text, key):
 
 ### Function: trans = DeepL translation
 def trans(input, target_lang, key):
-    translator = deepl.Translator(key)
-    result = translator.translate_text(input, target_lang = target_lang)
-    return result
+    try:
+        translator = deepl.Translator(key)
+        result = translator.translate_text(input, target_lang = target_lang)
+        return result
+    except Exception as e:
+        return 'Error: ' + str(e)
 
 
 
