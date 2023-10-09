@@ -6,28 +6,56 @@
         id: my_textinput
         font_size: 15
         size_hint_y: None
-        height: 200
-        text: 'default'
+        height: 180
+        text: ''
         on_text: root.change_text(my_textinput.text)
+    Button:
+        text: 'Improve text with AI'
+        size_hint: None, None
+        size: 180, 50
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        on_press: root.button_pressed()
     FloatLayout:
-        Scatter:
-            Label: 
-                id: my_label
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: 150
+            Label:
+                id: label1
                 text: my_textinput.text
                 font_size: 15
+                text_size: self.width, None
+                size_hint_y: None
+                height: 120
                 color: root.text_color
-    BoxLayout:
-        orientation: 'horizontal'
-        size_hint_y: None
-        height: 150
-        Label:
-            id: label1
-            text: my_textinput.text
-            font_size: 15
-            color: root.text_color
-        Label:
-            id: label2
-            text: my_textinput.text
-            font_size: 15
-            color: root.text_color
-            
+                readonly: False
+                multiline: True
+                on_touch_down: if self.collide_point(*args[1].pos): app.clipboard.copy(self.text)
+            Label:
+                id: label2
+                text: my_textinput.text
+                font_size: 15
+                text_size: self.width, None
+                size_hint_y: None
+                height: 120
+                color: root.text_color
+                readonly: False
+                multiline: True
+                on_touch_down: if self.collide_point(*args[1].pos): app.clipboard.copy(self.text)
+            Label:
+                id: label3
+                text: my_textinput.text
+                font_size: 15
+                text_size: self.width, None
+                size_hint_y: None
+                height: 120
+                color: root.text_color
+                readonly: False
+                multiline: True
+                on_touch_down: if self.collide_point(*args[1].pos): app.clipboard.copy(self.text)
+            Button:
+                text: 'Settings'
+                size_hint: 1, None
+                height: 40
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                on_release: app.open_settings()

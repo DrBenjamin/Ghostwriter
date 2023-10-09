@@ -162,3 +162,5 @@ cython_debug/
 ghostwriter-ios/*
 bin/.DS_Store
 .DS_Store
+ghostwriter.ini
+background.png
