@@ -2,14 +2,23 @@
 ##### Ghostwriter
 ##### Open-Source, hosted on https://github.com/DrBenjamin/Ghostwriter
 ##### Please reach out to ben@benbox.org for any questions
+__version__ = '1.0'
 #### Loading needed Python libraries
 ### General libraries
+import packaging
+import packaging.version
+import packaging.specifiers
+import packaging.requirements
+from platformdirs import *
+from platformdirs.macos import *
 import deepl
 import openai
 
 
 
 ### Kivy libraries
+import kivy
+kivy.require('2.2.1')
 from kivy.app import App
 from kivy.core.clipboard import Clipboard
 from kivy.config import ConfigParser
