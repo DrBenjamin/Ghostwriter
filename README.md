@@ -87,6 +87,7 @@ Deploy Windows App.
 ```bash
 python -m pip install -U pyinstaller
 python -m PyInstaller --hidden-import=collect_submodules --hidden-import=platformdirs.windows --hidden-import=packaging --hidden-import=packaging --hidden-import=packaging.version --hidden-import=packaging.specifiers --hidden-import=packaging.requirements -y --clean --name Ghostwriter --noconsole --onefile ./main.py
+python -m PyInstaller --name Ghostwriter --onefile ./main.py
 ```
 
 #### Build Android App

@@ -48,7 +48,7 @@ def chatgpt(text, key):
         # Creating summary of user question
         model = 'gpt-3.5-turbo'
         response = openai.ChatCompletion.create(model = model, messages = [
-            {"role": "system", "content": "Please write this sentence in a more academic form."},
+            {"role": "system", "content": "Please write this sentence in a more academic form in english."},
             {"role": "user", "content": text},])
         output = response['choices'][0]['message']['content'].lstrip()
         return output
