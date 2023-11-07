@@ -2,21 +2,14 @@
 ##### Ghostwriter
 ##### Open-Source, hosted on https://github.com/DrBenjamin/Ghostwriter
 ##### Please reach out to ben@benbox.org for any questions
-__version__ = '1.0'
 #### Loading needed Python libraries
 ### General libraries
-import packaging
-import packaging.version
-import packaging.specifiers
-import packaging.requirements
 from platformdirs import *
 from platformdirs.macos import *
 import deepl
 import openai
 
-
-
-### Kivy libraries
+# Kivy libraries
 import kivy
 kivy.require('2.2.1')
 from kivy.app import App
@@ -36,9 +29,8 @@ from settingsjson import settings_json
 from aboutjson import about_json
 
 
-
-
-#### Functions
+## Functions
+# Function: chatgpt = ChatGPT completion
 def chatgpt(text, key):
     # Set API key
     openai.api_key = key
@@ -46,7 +38,9 @@ def chatgpt(text, key):
     # Doing the requests to OpenAI for summarizing / keyword extracting the question
     try:
         # Creating summary of user question
-        model = 'gpt-3.5-turbo'
+        #model = 'gpt-3.5-turbo'
+        #model = "gpt-3.5-turbo-1106"
+        model = "gpt-4-1106-preview"
         response = openai.ChatCompletion.create(model = model, messages = [
             {"role": "system", "content": "Please write this sentence in a more academic form in english."},
             {"role": "user", "content": text},])
@@ -55,9 +49,7 @@ def chatgpt(text, key):
     except Exception as e:
         print('Error: ', str(e))
 
-
-
-### Function: trans = DeepL translation
+# Function: trans = DeepL translation
 def trans(input, target_lang, key):
     try:
         translator = deepl.Translator(key)
@@ -67,10 +59,8 @@ def trans(input, target_lang, key):
         return 'Error: ' + str(e)
 
 
-
-
-#### Classes
-### Widgets
+## Classes
+# Widgets
 class ScatterTextWidget(BoxLayout):
     # Configutation
     config = ConfigParser()
@@ -110,8 +100,7 @@ class ScatterTextWidget(BoxLayout):
             print('Error: ', str(e))
 
 
-
-### Layout
+## Layout
 class GhostwriterApp(App):
     clipboard = Clipboard
     
@@ -137,8 +126,6 @@ class GhostwriterApp(App):
         return ScatterTextWidget()
 
 
-
-
-#### Main   
+## Main   
 if __name__ == '__main__':
     GhostwriterApp().run()

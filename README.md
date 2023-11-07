@@ -44,6 +44,14 @@ Install dependencies
 python -m pip install -r requirements.txt
 ```
 
+### Run the App
+
+Run the app.
+
+```bash
+python main.py
+```
+
 ### Build the Apps
 
 Prepare the build.
